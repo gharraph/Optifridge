@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Dropbox/Patrick/optifridge/app/models/user.rb": [
+      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/models/user.rb": [
         1,
         null,
         null,
@@ -14,20 +14,20 @@
         null,
         null
       ],
-      "/Users/apprentice/Dropbox/Patrick/optifridge/app/controllers/application_controller.rb": [
+      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/apprentice/Dropbox/Patrick/optifridge/app/helpers/application_helper.rb": [
+      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Dropbox/Patrick/optifridge/app/helpers/static_helper.rb": [
+      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/static_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Dropbox/Patrick/optifridge/app/controllers/static_controller.rb": [
+      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/static_controller.rb": [
         1,
         null,
         1,
@@ -36,6 +36,6 @@
         null
       ]
     },
-    "timestamp": 1344311266
+    "timestamp": 1344324112
   }
 }

@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <%= render :partial => 'layouts/favicons' %>
+	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
@@ -18,10 +19,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-            <%= render :partial => 'layouts/sidebar' %>
-        </div><!--/span-->
-        <div class="span9">
+        <div class="span12">
           <%= render :partial => 'layouts/flashes' %>
           <%= yield %>
         </div>
