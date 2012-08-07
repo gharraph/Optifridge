@@ -20,8 +20,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'shoulda-matchers'
   gem 'launchy'
-  gem 'spork-rails'
-  gem 'guard-spork'
   #sendgrid or mail gem
 end
 
