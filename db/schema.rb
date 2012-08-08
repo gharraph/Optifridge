@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807235347) do
+ActiveRecord::Schema.define(:version => 20120808044915) do
 
   create_table "item_kinds", :force => true do |t|
     t.string   "name"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(:version => 20120807235347) do
   end
 
   create_table "locations", :force => true do |t|
-    t.string   "type"
     t.integer  "shelf_life_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "name"
   end
 
   create_table "shelf_lives", :force => true do |t|

@@ -40,7 +40,7 @@
         1,
         null,
         1,
-        1,
+        null,
         1,
         null,
         null
@@ -50,9 +50,11 @@
         1,
         null,
         1,
+        1,
         null
       ],
       "/Users/apprentice/Desktop/Optifridge/app/models/shelf_life.rb": [
+        1,
         1,
         1,
         1,
@@ -61,6 +63,6 @@
         null
       ]
     },
-    "timestamp": 1344384406
+    "timestamp": 1344401074
   }
 }
