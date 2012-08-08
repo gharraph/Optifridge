@@ -1,7 +1,6 @@
 <!-- Look up how they handle flashes on  -->
-<% if flash.notice || flash.alert %>
+<% if flash[:notice] || flash[:error] || flash[:alert] %>
   <% flash.each do |key, msg| %>
-    <% key = "success" if key = "notice" %>
     <%= content_tag :div, msg, :class => "alert alert-#{key}" %>
   <% end %>
 <% end %>

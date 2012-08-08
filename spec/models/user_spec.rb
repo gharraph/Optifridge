@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe User do
+  it { should have_many(:items) }
+
   it "should throw an error if a user doesn't have an email" do
     expect { User.create(:password => "password") }.should raise_error
   end
