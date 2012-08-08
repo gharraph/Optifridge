@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   attr_accessible :shelf_life_id, :name
-  # belongs_to :item_kind
+
   belongs_to :shelf_life
   validates_presence_of :name
 end

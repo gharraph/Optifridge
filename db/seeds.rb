@@ -10,22 +10,12 @@ require_relative '../lib/tasks/dayconverter.rb'
 
 
 #for years http://www.stilltasty.com/fooditems/index/16518
-
-(16400..16450).each do |id|
-  agent = Mechanize.new
+agent = Mechanize.new
+(16401..16420).each do |id|
   agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|
-    unless food_page.parser.css('.bigBlackHeading').text.empty?
+    if page_has_content?(food_page)
       ItemKind.create(:name => food_page.parser.css('.bigBlackHeading').text.strip!)
-      puts ItemKind.last
-      food_page.parser.css('.textContainer table table tr').each do |row|
-          if !row.css('.slicedHead').text.empty?
-            ItemKind.last.shelf_lives.create(:duration => set_to_days(row.css('.days').text))
-
-            ItemKind.last.shelf_lives.last.create_location(:name => row.css('.slicedHead').text)
-          end
-      end
-    else
-      puts "Caught an empty page"
+      create_shelf_life_and_location(food_page)
     end
   end
 end
