@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/models/user.rb": [
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/models/user.rb": [
         1,
         null,
         null,
@@ -12,22 +12,79 @@
         null,
         1,
         null,
-        null
-      ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/application_controller.rb": [
-        1,
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/application_helper.rb": [
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        17,
+        5,
+        null,
+        12,
+        null,
+        null,
+        null,
+        1,
+        13,
+        9,
+        9,
+        9,
+        9,
+        null,
+        13,
+        null,
+        null
+      ],
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/static_helper.rb": [
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/static_controller.rb": [
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/helpers/static_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/controllers/items_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        13,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Dropbox/Patrick/optifridge/app/controllers/static_controller.rb": [
         1,
         null,
         1,
@@ -36,6 +93,6 @@
         null
       ]
     },
-    "timestamp": 1344324112
+    "timestamp": 1344403594
   }
 }
