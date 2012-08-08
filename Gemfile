@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'quiet_assets'
 gem 'devise'
+gem 'mechanize'
 
 group :production do
   gem 'pg'
