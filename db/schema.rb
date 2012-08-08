@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20120808044915) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "items", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "item_kind_id"
+    t.datetime "expiration"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.integer  "shelf_life_id"
     t.datetime "created_at",    :null => false
