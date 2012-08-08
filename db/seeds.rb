@@ -7,9 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require_relative '../lib/tasks/dayconverter.rb'
 
-
-
-#for years http://www.stilltasty.com/fooditems/index/16518
 agent = Mechanize.new
 (16401..16420).each do |id|
   agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|

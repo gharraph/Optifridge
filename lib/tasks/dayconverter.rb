@@ -5,13 +5,13 @@ end
 def create_shelf_life_and_location(food_page)
   food_page.parser.css('.textContainer table table tr').each do |row|
     if !row.css('.slicedHead').text.empty?
-      ItemKind.last.shelf_lives.create(:duration => set_to_days(row.css('.days').text))
+      ItemKind.last.shelf_lives.create(:duration => convert_time(row.css('.days').text))
       ItemKind.last.shelf_lives.last.create_location(:name => row.css('.slicedHead').text)
     end
   end
 end
 
-def set_to_days(duration)
+def convert_time(duration)
   type = nil
   case
   when /day/ =~ duration
@@ -21,10 +21,10 @@ def set_to_days(duration)
   when /year/ =~ duration
     type = :year
   end
-  convert_time(duration.split, type)
+  set_to_days(duration.split, type)
 end
 
-def convert_time(duration, type)
+def set_to_days(duration, type)
   numeric_time = duration.first.split('-').first.to_i
   case type
   when :day
