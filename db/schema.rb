@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807011603) do
+ActiveRecord::Schema.define(:version => 20120807235347) do
+
+  create_table "item_kinds", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "type"
+    t.integer  "shelf_life_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "shelf_lives", :force => true do |t|
+    t.integer  "item_kind_id"
+    t.integer  "duration"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "shelf_lives", ["item_kind_id"], :name => "index_shelf_lives_on_item_kind_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/models/user.rb": [
+      "/Users/apprentice/Desktop/Optifridge/app/models/user.rb": [
         1,
         null,
         null,
@@ -14,28 +14,53 @@
         null,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/application_controller.rb": [
+      "/Users/apprentice/Desktop/Optifridge/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/application_helper.rb": [
+      "/Users/apprentice/Desktop/Optifridge/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/helpers/static_helper.rb": [
+      "/Users/apprentice/Desktop/Optifridge/app/helpers/static_helper.rb": [
         1,
         null
       ],
-      "/Users/patrickcushing/Documents/workspace/rails_projects/Optifridge/app/controllers/static_controller.rb": [
+      "/Users/apprentice/Desktop/Optifridge/app/controllers/static_controller.rb": [
         1,
         null,
         1,
         null,
         null,
+        null
+      ],
+      "/Users/apprentice/Desktop/Optifridge/app/models/item_kind.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/Optifridge/app/models/location.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/Optifridge/app/models/shelf_life.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
         null
       ]
     },
-    "timestamp": 1344324112
+    "timestamp": 1344384406
   }
 }
