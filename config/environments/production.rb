@@ -21,7 +21,7 @@ Optifridge::Application.configure do
   config.assets.digest = true
   
   # To fix favicons issues with twitter-bootstrap-rails
-  config.assets.precompile = [/^[-_a-zA-Z0-9]*\..*/]
+  # config.assets.precompile = [/^[-_a-zA-Z0-9]*\..*/]
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
