@@ -5,6 +5,7 @@ describe ItemKind do
   it {should have_many(:shelf_lives)}
   it {should validate_presence_of(:name)}
   it {should have_many(:locations)}
+  it {should have_many(:items)}
 
 end
 
