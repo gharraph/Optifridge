@@ -1,13 +1,10 @@
 <h2>Add Items</h2>
 <%= form_for(@item) do |f| %>
   <p>
-    <%= f.label :item_kind_id %>
-    <%= f.text_field :item_kind_id %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, session[:reuse_data] %>
   </p>
-  <p>
-    <%= f.label :expiration %>
-    <%= f.text_field :expiration %>
-  </p>
-  <%= f.hidden_field :user_id, :value => current_user.id if signed_in? %>
   <%= f.submit %>
 <% end %>
+
+

@@ -55,6 +55,7 @@
       "/Users/apprentice/Desktop/Optifridge/app/controllers/items_controller.rb": [
         1,
         1,
+        1,
         null,
         1,
         0,
@@ -64,6 +65,8 @@
         0,
         0,
         0,
+        null,
+        0,
         0,
         null,
         0,
@@ -72,7 +75,12 @@
         null,
         null,
         1,
+        0,
         null,
+        null,
+        1,
+        1,
+        0,
         null,
         null
       ],
@@ -82,6 +90,15 @@
         1,
         1,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/apprentice/Desktop/Optifridge/app/controllers/static_controller.rb": [
@@ -99,7 +116,15 @@
         1,
         1,
         1,
+        1,
+        1,
         null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/apprentice/Desktop/Optifridge/app/models/location.rb": [
@@ -120,6 +145,6 @@
         null
       ]
     },
-    "timestamp": 1344466064
+    "timestamp": 1344638585
   }
 }
