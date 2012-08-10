@@ -8,7 +8,7 @@
 require_relative '../lib/tasks/dayconverter.rb'
 
 agent = Mechanize.new
-(16401..16420).each do |id|
+(16401..16404).each do |id|
   agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|
     if page_has_content?(food_page)
       ItemKind.create(:name => food_page.parser.css('.bigBlackHeading').text.strip!)
