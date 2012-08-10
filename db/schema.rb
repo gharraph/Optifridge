@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808044915) do
+ActiveRecord::Schema.define(:version => 20120809220707) do
 
   create_table "item_kinds", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20120808044915) do
   create_table "items", :force => true do |t|
     t.integer  "user_id"
     t.integer  "item_kind_id"
-    t.datetime "expiration"
+    t.date     "expiration"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
