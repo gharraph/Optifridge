@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+      <h2>You might want to clean out your fridge soon. Here are the items that might need to be disposed of.</h2>
+      <%= link_to "See Everything in Your Fridge", root_path %>
+      <ul>
+        <% @user.items.each do |item| %>
+          <li><%= item.item_kind.name %></li>
+        <% end %>
+      </ul>
+    </body>
+
+</html>
+
+
+
