@@ -7,10 +7,11 @@ class ItemKind < ActiveRecord::Base
   validates_presence_of :name
   before_save :force_utf_encoding
 
+  private
+
+  def force_utf_encoding
+   self.name.gsub!(/\s[\W]/, "")
+  end
+
 end
 
-private
-
-def force_utf_encoding
- self.name.gsub!(/\s[\W]/, "")
-end

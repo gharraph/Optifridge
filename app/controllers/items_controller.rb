@@ -7,15 +7,17 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item_kind = ItemKind.find_by_name(params[:name])
+    @item_kind = ItemKind.find_by_name(params[:item][:item_kind_name])
     @item = current_user.items.new(:item_kind_id => @item_kind.id, :expiration => Date.today)
-    if @item.save
-      # session[:reuse_data] = params[:item]
-      flash[:notice] = "Item created successfully."
-      redirect_to items_path
-    else
-      flash.now[:error] = "Something went wrong, bro."
-      render new_item_path
+    respond_to do |format|
+      if @item.save
+        # session[:reuse_data] = params[:item]
+        flash[:notice] = "Item created successfully."
+        format.js
+      else
+        flash.now[:error] = "Something went wrong, bro."
+        render new_item_path
+      end
     end
   end
 
