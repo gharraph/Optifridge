@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = current_user.items
+    @item = current_user.items.new
   end
 
   private

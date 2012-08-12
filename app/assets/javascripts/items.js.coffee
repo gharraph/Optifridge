@@ -6,3 +6,10 @@ jQuery ->
         source: $('#item_item_kind_name').data('autocomplete-source')
 
 #source -- can pass a url for it to query through ajax
+#
+#
+# $.document.ready(){
+#   $('#item_item_kind_name').autocomplete(){
+#       source: $('#item_item_kind_name').data('autocomplete-source')
+#   }
+# }
