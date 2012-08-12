@@ -1,10 +1,5 @@
 <h2>Add Items</h2>
-<%= form_for(@item) do |f| %>
-  <p>
-    <%= label_tag :name %>
-    <%= text_field_tag :name, session[:reuse_data] %>
-  </p>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>
+
 
 
