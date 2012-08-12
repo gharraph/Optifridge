@@ -19,7 +19,7 @@ describe UserMailer do
     end
 
     it "has a list of the user's items" do
-      # We need to clean up item.item_kind.name to item.name
+      # We need to clean up item.item_kind.name to item.name; we know this user has 3 items from our Fabricate
       mailer.body.should have_selector('li', :text => user.items[0].item_kind.name)
       mailer.body.should have_selector('li', :text => user.items[1].item_kind.name)
       mailer.body.should have_selector('li', :text => user.items[2].item_kind.name)
