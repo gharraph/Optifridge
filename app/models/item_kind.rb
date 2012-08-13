@@ -7,6 +7,11 @@ class ItemKind < ActiveRecord::Base
   validates_presence_of :name
   before_save :force_utf_encoding
 
+
+  def self.find_by_name_lower_case(term_params)
+    order(:name).where("LOWER(name) like ?", "%#{term_params.downcase}%")
+  end
+  
   private
 
   def force_utf_encoding
