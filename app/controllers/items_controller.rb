@@ -22,6 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def index
+    current_user.send_weekly_email if params[:send_email] == "true"
+    @items = current_user.items
+    @item = current_user.items.new
     if !session[:reuse_data].nil?
       @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
       @item = current_user.items.new(:item_kind_id => @item_kind)

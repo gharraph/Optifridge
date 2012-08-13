@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { Fabricate(:user_with_items) }
+
   it { should have_many(:items) }
 
   it "should throw an error if a user doesn't have an email" do
@@ -26,4 +28,12 @@ describe User do
     User.create(:email => "p@example.com", :password => "passw").should_not be_valid
     User.create(:email => "p@example.com", :password => "passwo").should be_valid
   end
+
+  describe "email sends" do
+    it "it should be able to send an email with all associated items" do
+      user.send_weekly_email
+      ActionMailer::Base.deliveries.last.to.should include(user.email)
+    end
+  end
 end
+
