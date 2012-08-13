@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails'
 gem 'quiet_assets'
 gem 'devise'
 gem 'mechanize'
+gem 'sendgrid'
 
 group :production do
   gem 'pg'
@@ -16,7 +17,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'capybara', '1.1.2'
   gem 'fabrication'
   gem 'guard-rspec'
   gem 'shoulda-matchers'

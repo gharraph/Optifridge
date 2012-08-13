@@ -1,5 +1,5 @@
 Fabricator(:location) do
   shelf_life_id { rand(20) + 1 }
-  name { bs(Faker::Lorem) }
+  name { ["pantry", "refridgerator", "freezer"][rand(3)] }
 end
 
