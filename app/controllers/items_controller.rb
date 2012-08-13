@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_filter :signed_in_home, :only => :index
   before_filter :authenticate_user!, :only => [:create, :index]
   # after_filter :reset_session, :only => :new
 
@@ -24,17 +25,21 @@ class ItemsController < ApplicationController
   def index
     current_user.send_weekly_email if params[:send_email] == "true"
     @items = current_user.items
-    @item = current_user.items.new
     if !session[:reuse_data].nil?
       @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
       @item = current_user.items.new(:item_kind_id => @item_kind)
     else
-      @item = Item.new
+      @item = current_user.items.new
     end
   end
 
   private
-    def reset_session
-      session[:reuse_data] = nil
+    # Need to revisit this
+    # def reset_session
+    #   session[:reuse_data] = nil
+    # end
+
+    def signed_in_home
+      redirect_to static_home_path if !user_signed_in? && request.fullpath != "/items"
     end
 end

@@ -67,13 +67,10 @@ describe "item pages" do
   end
 
   describe "index" do
-    before { visit items_path }
-
     describe "logged in" do
       before do
-        fill_in "Email", :with => @user.email
-        fill_in "Password", :with => @user.password
-        click_button "Sign in"
+        sign_in(@user)
+        visit items_path
       end
 
       it { should have_selector('h3', :text => "Your Food Inventory") }
@@ -88,14 +85,14 @@ describe "item pages" do
             fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
             click_button "Create Item"
         end
-        # Necessarily ugly for now until we have our item_kind db with real content
+
         it { should have_selector('li', :text => @user.items.first.item_kind.name) }
         it { should have_selector('li', :text => @user.items.last.item_kind.name) }
-
       end
     end
 
     describe "logged out" do
+      before { visit items_path }
        it { should have_selector('h2', :text => "Sign in") }
        it { should have_content("You need to sign in or sign up before continuing.") }
     end

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'Static pages' do
+  let(:user) { Fabricate(:user_with_items) }
   subject { page }
 
   describe "home page" do
@@ -33,13 +34,20 @@ describe 'Static pages' do
         before { click_link "Add Items" }
 
         it { should have_selector('h2', :text => 'Add Items') }
-
       end
-
     end
 
-  end
+    describe "logged in" do
+      before do
+        sign_in(user)
+        visit root_path
+      end
 
+      it { should have_selector('h2', :text => 'Add Items') }
+      it { should have_selector('h3', :text => 'Your Food Inventory') }
+      it { should have_selector('li', :text => user.items[0].item_kind.name) }
+    end
+  end
 end
 
 
