@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :signed_in_home, :only => :index
   before_filter :authenticate_user!, :only => [:create, :index]
-  # after_filter :reset_session, :only => :new
+  after_filter :reset_session, :only => :create
 
   def new
     item_from_reuse_data_or_new
@@ -43,17 +43,16 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Need to revisit this
-    # def reset_session
-    #   session[:reuse_data] = nil
-    # end
+    def reset_session
+      session[:reuse_data] = nil
+    end
 
     def item_from_reuse_data_or_new
       #Can use some refactoring for sheezy
       if !session[:reuse_data].nil?
         @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
         @item = current_user.items.new(:item_kind_id => @item_kind)
-      elsif current_user
+      elsif user_signed_in?
         @item = current_user.items.new
       else
         @item = Item.new
