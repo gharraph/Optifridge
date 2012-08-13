@@ -2,7 +2,7 @@
 <%= form_for(@item) do |f| %>
   <p>
     <%= f.label :item_kind_name %>
-    <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path}%>
+    <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path} %>
   </p>
   <%= f.submit %>
 <% end %>

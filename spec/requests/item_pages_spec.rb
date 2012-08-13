@@ -88,6 +88,11 @@ describe "item pages" do
 
         it { should have_selector('li', :text => @user.items.first.item_kind.name) }
         it { should have_selector('li', :text => @user.items.last.item_kind.name) }
+        it { should have_link("Remove") }
+
+        it "removes an item on" do
+          expect { click_link "Remove" }.to change(@user.items, :count).by(-1)
+        end
       end
     end
 

@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # after_filter :reset_session, :only => :new
 
   def new
-    @item = Item.new
+    item_from_reuse_data_or_new
   end
 
   def create
@@ -25,11 +25,20 @@ class ItemsController < ApplicationController
   def index
     current_user.send_weekly_email if params[:send_email] == "true"
     @items = current_user.items
-    if !session[:reuse_data].nil?
-      @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
-      @item = current_user.items.new(:item_kind_id => @item_kind)
-    else
-      @item = current_user.items.new
+    item_from_reuse_data_or_new
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      if @item.destroy
+        flash[:notice] = "Item deleted."
+        format.js
+        format.html { redirect_to items_path }
+      else
+        flash.now[:error] = "Something went wrong, bro."
+        render items_path
+      end
     end
   end
 
@@ -38,6 +47,18 @@ class ItemsController < ApplicationController
     # def reset_session
     #   session[:reuse_data] = nil
     # end
+
+    def item_from_reuse_data_or_new
+      #Can use some refactoring for sheezy
+      if !session[:reuse_data].nil?
+        @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
+        @item = current_user.items.new(:item_kind_id => @item_kind)
+      elsif current_user
+        @item = current_user.items.new
+      else
+        @item = Item.new
+      end
+    end
 
     def signed_in_home
       redirect_to static_home_path if !user_signed_in? && request.fullpath != "/items"
