@@ -20,11 +20,13 @@ class ItemsController < ApplicationController
   end
 
   def index
+    current_user.send_weekly_email if params[:send_email] == "true"
     @items = current_user.items
   end
 
   private
-  def reset_session
-    session[:reuse_data] = nil
-  end
+    def reset_session
+      session[:reuse_data] = nil
+    end
+
 end

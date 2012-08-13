@@ -15,6 +15,10 @@ Optifridge::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  # Send emails with action mailer in development via Sendgrid
+  config.action_mailer.delivery_method = :smtp
+  # Action Mailer requirement from devise
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -35,6 +39,4 @@ Optifridge::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # Action Mailer requirement from devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

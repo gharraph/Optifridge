@@ -14,10 +14,4 @@ describe Item do
     end
   end
 
-  context "#initialize" do
-    it "generates a mailer" do
-      ActionMailer::Base.deliveries.last.to.should include(user.email)
-    end
-  end
-
 end

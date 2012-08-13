@@ -6,10 +6,10 @@
 
     <body>
       <h2>You might want to clean out your fridge soon. Here are the items that might need to be disposed of.</h2>
-      <%= link_to "See Everything in Your Fridge", root_path %>
+      <%= link_to "See Everything in Your Fridge", root_url %>
       <ul>
-        <% @user.items.each do |item| %>
-          <li><%= item.item_kind.name %></li>
+        <% @items.each do |item| %>
+          <li><%= item.item_kind.name %> <%= item.expiration %></li>
         <% end %>
       </ul>
     </body>
