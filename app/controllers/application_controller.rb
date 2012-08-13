@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     if !user_signed_in?
-      session[:reuse_data] = request.parameters[:name] if request.parameters[:name]
+      session[:reuse_data] = request.parameters[:item] if request.parameters[:item]
       redirect_path = request.fullpath
-      redirect_path += '/new' if (request.parameters['action'] == "create")
+      #redirect_path += '/' if (request.parameters['action'] == "create")
       session[:return_to] = redirect_path
     end
     super
