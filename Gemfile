@@ -13,7 +13,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
   gem 'simplecov'
   gem 'faker'
   gem 'rspec-rails'
