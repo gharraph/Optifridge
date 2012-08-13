@@ -24,7 +24,7 @@ describe UserMailer do
     end
 
     it "has a link to the website" do
-      mailer.body.should have_link("See Everything in Your Fridge", :href => root_path)
+      mailer.body.should have_link("See Everything in Your Fridge", :href => root_url)
     end
 
     it "has a list of the user's items and expirations" do
