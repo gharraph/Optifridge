@@ -1,4 +1,5 @@
 <li><%= item.id.to_s %> | <%= item.item_kind_id.to_s %> <%= item.item_kind.name unless item.item_kind.nil? %> expires at
     <span class="date"><%= item.expiration.to_s %></span>
+    <span class="location"><%= item.storage %></span>
     <%= link_to 'Remove', item_path(item.id), :method => :delete %>
 </li>

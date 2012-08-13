@@ -74,6 +74,7 @@ describe "item pages" do
       end
 
       it { should have_selector('h3', :text => "Your Food Inventory") }
+      it { should have_select('Storage', :with_options => "Refridgerator") }
 
       describe "has no items" do
         # Not sure if we'll need a prompt here when we go jquery so let's hold off for now.
@@ -88,6 +89,7 @@ describe "item pages" do
 
         it { should have_selector('li', :text => @user.items.first.item_kind.name) }
         it { should have_selector('li', :text => @user.items.last.item_kind.name) }
+        it { should have_selector('li span.location', :text => @user.items.last.storage) }
         it { should have_link("Remove") }
 
         it "removes an item on" do

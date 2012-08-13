@@ -1,7 +1,6 @@
 <h2>Add Items</h2>
-<%= render "form" %>
-
-<%= render "items" %>
+<%= render :partial => 'items/form', :locals => { :item => @item } %>
+<%= render :partial => 'items/items' %>
 
 
 
