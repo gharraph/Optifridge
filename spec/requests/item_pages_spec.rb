@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe "item pages" do
   # @user = Fabricate(:@user_with_items)
   # @user.items.each do |item|
@@ -24,7 +25,7 @@ describe "item pages" do
     before { visit new_item_path }
 
     it { should have_selector('h2', :text => 'Add Items') }
-    it { should have_field('Name') }
+    it { should have_field("Item kind name") }
     it { should have_button('Create Item') }
 
     describe "logged in" do
@@ -32,8 +33,8 @@ describe "item pages" do
         # NOTE this will break once we have the form acting as it should
         before do
           sign_in(@user)
-          visit new_item_path
-          fill_in "Name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          visit items_path
+          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
           click_button "Create Item"
         end
 
@@ -46,7 +47,7 @@ describe "item pages" do
     describe "logged out" do
       describe "create new item" do
         before do
-          fill_in "Name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
           click_button "Create Item"
         end
 
@@ -75,7 +76,7 @@ describe "item pages" do
         click_button "Sign in"
       end
 
-      it { should have_selector('h2', :text => "Your Items") }
+      it { should have_selector('h3', :text => "Your Food Inventory") }
 
       describe "has no items" do
         # Not sure if we'll need a prompt here when we go jquery so let's hold off for now.
@@ -83,13 +84,13 @@ describe "item pages" do
 
       describe "has items" do
         before do
-            visit new_item_path
-            fill_in "Name", :with => "APRICOTS FRESH, RAW, CUT UP"
+            visit items_path
+            fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
             click_button "Create Item"
         end
         # Necessarily ugly for now until we have our item_kind db with real content
-        it { should have_selector('li', :text => @user.items.first.item_kind_id.to_s) }
-        it { should have_selector('li', :text => @user.items.last.item_kind_id.to_s) }
+        it { should have_selector('li', :text => @user.items.first.item_kind.name) }
+        it { should have_selector('li', :text => @user.items.last.item_kind.name) }
 
       end
     end
