@@ -1,10 +1,10 @@
 <h3>Your Food Inventory</h3>
 <ul class='itemsIndex'>
   <% current_user.items.each do |item| %>
-  <% if !item.item_kind.nil? %>
-  <li><%= item.id.to_s %> | <%= item.item_kind_id.to_s %> <%= item.item_kind.name unless item.item_kind.nil? %> expires at some point
-      <span class="date"><%= item.expiration.to_s %></span>.
-  </li>
-  <% end %>
+    <% if !item.item_kind.nil? %>
+      <li><%= item.id.to_s %> | <%= item.item_kind_id.to_s %> <%= item.item_kind.name unless item.item_kind.nil? %> expires at
+          <span class="date"><%= item.expiration.to_s %></span>.
+      </li>
+    <% end %>
   <% end %>
 </ul>

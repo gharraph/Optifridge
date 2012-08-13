@@ -9,7 +9,7 @@ describe Item do
   it "validates a valid datetime format"
 
   context "#set_expiration" do
-    it "calculates experation date based on duration of its parent item_kind shortest shelf life" do
+    it "calculates expiration date based on duration of its parent item_kind shortest shelf life" do
       @user = User.new(:email => "s@example.com", :password => "password")
       @item_kind = ItemKind.create(:name => "APRICOTS FRESH, RAW, CUT UP")
       @shelf_life1 = @item_kind.shelf_lives.create(:duration => 365)
