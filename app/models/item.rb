@@ -11,6 +11,13 @@ class Item < ActiveRecord::Base
     self.expiration = Date.today + default_shelf_life.duration
   end
 
+  def item_kind_name
+    item_kind.try(:name)
+  end
+
+  def item_kind_name=(name)
+    self.item_kind = ItemKind.find_by_name(name) if name.present?
+  end
 end
 
 
