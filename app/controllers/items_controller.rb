@@ -46,14 +46,14 @@ class ItemsController < ApplicationController
 
   private
     def reset_session
-      session[:reuse_data] = nil
+      session.delete(:reuse_data)
     end
 
     def item_from_reuse_data_or_new
       #Can use some refactoring for sheezy
       if !session[:reuse_data].nil? && user_signed_in?
         @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
-        @item = current_user.items.new(:item_kind_id => @item_kind)
+        @item = current_user.items.new(:item_kind_id => @item_kind.id)
       elsif user_signed_in?
         @item = current_user.items.new
       else
@@ -62,6 +62,6 @@ class ItemsController < ApplicationController
     end
 
     def signed_in_home
-      redirect_to static_home_path if !user_signed_in? && request.fullpath != "/items"
+      redirect_to static_home_path if !user_signed_in? #&& request.fullpath != "/items"
     end
 end

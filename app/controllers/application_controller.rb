@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 
   def store_unauthenticated_input
     session[:reuse_data] = request.parameters[:item] if request.parameters[:item]
+    warn session[:reuse_data]
   end
 
   def generate_redirect_path
@@ -30,3 +31,5 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
+
