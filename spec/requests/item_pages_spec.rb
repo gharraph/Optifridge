@@ -36,8 +36,8 @@ describe "item pages" do
           visit items_path
           fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
           click_button "Create Item"
-        end
-
+        end        
+        
         # it {should have_selector('li:last-child .date', :text => (Date.today + 360).to_s)} Fix this
         it { should have_content "Item created successfully" }
 
@@ -74,7 +74,6 @@ describe "item pages" do
       end
 
       it { should have_selector('h3', :text => "Your Food Inventory") }
-      it { should have_select('Storage', :with_options => "Refridgerator") }
 
       describe "has no items" do
         # Not sure if we'll need a prompt here when we go jquery so let's hold off for now.
@@ -84,17 +83,26 @@ describe "item pages" do
         before do
             visit items_path
             fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
+        end
+
+        ##failing because it is not triggering the autocomplete event
+        it { should have_select('Storage', :with_options => "Refridgerator") }
+
+        describe "after the add item button is clicked" do
+          before do
             click_button "Create Item"
+          end
+          it { should have_selector('li', :text => @user.items.first.item_kind.name) }
+          it { should have_selector('li', :text => @user.items.last.item_kind.name) }
+          it { should have_selector('li span.location', :text => @user.items.last.storage) }
+          it { should have_link("Remove") }
+
+          it "removes an item on" do
+            expect { click_link "Remove" }.to change(@user.items, :count).by(-1)
+          end
         end
 
-        it { should have_selector('li', :text => @user.items.first.item_kind.name) }
-        it { should have_selector('li', :text => @user.items.last.item_kind.name) }
-        it { should have_selector('li span.location', :text => @user.items.last.storage) }
-        it { should have_link("Remove") }
-
-        it "removes an item on" do
-          expect { click_link "Remove" }.to change(@user.items, :count).by(-1)
-        end
+        
       end
     end
 

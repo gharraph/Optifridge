@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :expiration, :item_kind_id
+  attr_accessible :expiration, :item_kind_id, :storage
   belongs_to :user
   belongs_to :item_kind
   before_validation :set_expiration, :on => :create
