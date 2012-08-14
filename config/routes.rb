@@ -1,8 +1,5 @@
 Optifridge::Application.routes.draw do
   devise_for :users
-  namespace :user do
-    root :to => "items#new"
-  end
 
   resources :items
 

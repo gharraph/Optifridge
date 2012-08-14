@@ -62,6 +62,6 @@ class ItemsController < ApplicationController
     end
 
     def signed_in_home
-      redirect_to static_home_path if !user_signed_in? #&& request.fullpath != "/items"
+      redirect_to static_home_path if !user_signed_in? && request.fullpath != "/items"
     end
 end
