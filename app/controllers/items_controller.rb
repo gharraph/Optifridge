@@ -9,7 +9,9 @@ class ItemsController < ApplicationController
 
   def create
     @item_kind = ItemKind.find_by_name(params[:item][:item_kind_name])
-    @item = current_user.items.new(:item_kind_id => @item_kind.id, :expiration => Date.today)
+    @item = current_user.items.new(:item_kind_id => @item_kind.id,
+                                   :expiration => Date.today,
+                                   :storage => params[:item][:storage])
     respond_to do |format|
       if @item.save
         flash[:notice] = "Item created successfully."
