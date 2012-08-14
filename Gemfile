@@ -7,6 +7,7 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'mechanize'
 gem 'sendgrid'
+gem 'whenever', :require => false
 
 group :production do
   gem 'pg'
