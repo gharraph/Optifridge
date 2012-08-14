@@ -10,7 +10,7 @@ class ItemKind < ActiveRecord::Base
   private
 
   def force_utf_encoding
-   self.name.gsub!(/\s[\W]/, "")
+   self.name.gsub!(/\W/, " ")
   end
 
 end

@@ -6,10 +6,11 @@ class ItemKindsController < ApplicationController
   end
 
   def show
-  	item_kind = ItemKind.find_by_name(params[:id])
-  	@locations = item_kind.shelf_lives.map {|shelf_life| shelf_life.location.name}
-  	respond_to do |format|
-   		format.html { render :partial => 'select' }
-   	end
+    item_kind = ItemKind.find_by_name(params[:id])
+    @locations = item_kind.shelf_lives.map { |shelf_life| shelf_life.location.name if !shelf_life.location.nil? }.compact
+    respond_to do |format|
+      format.json { render :json => @locations }
+      format.html { render :partial => 'select' }
+    end
   end
 end

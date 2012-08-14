@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
     def item_from_reuse_data_or_new
       #Can use some refactoring for sheezy
-      if !session[:reuse_data].nil?
+      if !session[:reuse_data].nil? && user_signed_in?
         @item_kind = ItemKind.find_by_name(session[:reuse_data][:item_kind_name])
         @item = current_user.items.new(:item_kind_id => @item_kind)
       elsif user_signed_in?

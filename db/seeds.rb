@@ -11,13 +11,13 @@ agent = Mechanize.new
 # 16000-17000... about 3.5m
 # 17000-18000... about 4m
 # 18001-19000... about 4m
-(18001..19000).each do |id|
+(16001..17000).each do |id|
   if id * rand(2)
     agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|
       if page_has_content?(food_page)
         ItemKind.create(:name => food_page.parser.css('.bigBlackHeading').text.strip!)
         create_shelf_life_and_location(food_page)
-        puts ItemKind.last
+        puts ItemKind.last.inspect
       end
     end
   end

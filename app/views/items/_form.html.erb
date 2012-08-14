@@ -1,6 +1,6 @@
 <%= form_for(item, :remote => remote) do |f| %>
  <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "Add your item here" %>
-
+  <%= f.select :storage, ["Refrigerator", "Freezer", "Pantry"] %>
   <%= f.submit :class => "btn btn-primary" %>
 <% end %>
 
