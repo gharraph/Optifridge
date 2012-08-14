@@ -25,7 +25,7 @@ describe "item pages" do
     before { visit new_item_path }
 
     it { should have_selector('h2', :text => 'Add Items') }
-    it { should have_field("Item kind name") }
+    it { should have_field("ItemName") }
     it { should have_button('Create Item') }
 
     describe "logged in" do
@@ -34,7 +34,7 @@ describe "item pages" do
         before do
           sign_in(@user)
           visit items_path
-          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          fill_in "ItemName", :with => "APRICOTS FRESH, RAW, CUT UP"
           click_button "Create Item"
         end        
         
@@ -47,7 +47,7 @@ describe "item pages" do
     describe "logged out" do
       describe "create new item" do
         before do
-          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          fill_in "ItemName", :with => "APRICOTS FRESH, RAW, CUT UP"
           click_button "Create Item"
         end
 
@@ -73,7 +73,9 @@ describe "item pages" do
         visit items_path
       end
 
-      it { should have_selector('h3', :text => "Your Food Inventory") }
+
+      it { should have_selector('h3', :text => "Expiring Soon") }
+
 
       describe "has no items" do
         # Not sure if we'll need a prompt here when we go jquery so let's hold off for now.
@@ -96,6 +98,7 @@ describe "item pages" do
           it { should have_selector('li', :text => @user.items.last.item_kind.name) }
           it { should have_selector('li span.location', :text => @user.items.last.storage) }
           it { should have_link("Remove") }
+          it "has badges for where its stored"
 
           it "removes an item on" do
             expect { click_link "Remove" }.to change(@user.items, :count).by(-1)
