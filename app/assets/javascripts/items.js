@@ -3,7 +3,6 @@
 // # // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(function(){
-    // debugger;
     var item_kinds_path = $('#item_item_kind_name').data('autocomplete-source');
     $('#item_item_kind_name').autocomplete({
         source: item_kinds_path
@@ -21,7 +20,17 @@ $(function(){
     });
 
     $('.expiration').datepicker({
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'yy-mm-dd',
+        onSelect: function (dateText, inst) {
+            var itemId = $(this).parents("li").attr("id");
+            $.ajax({
+                url: '/items/' + itemId,
+                type: 'PUT',
+                data: "expiration=" + dateText 
+            });
+        }
     });
+
+
 });
 
