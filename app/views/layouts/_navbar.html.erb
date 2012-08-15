@@ -1,21 +1,21 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+<!--       <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a>
+      </a> -->
 	  <%= link_to 'Optifridge', root_path, :class => 'brand' %>
-      <div class="container-fluid nav-collapse">
-        <ul class="nav">
+     <!--  <div class="container-fluid nav-collapse"> -->
+        <ul class="nav pull-right">
           <% if !user_signed_in? %>
             <li><%= link_to "Sign in", new_user_session_path  %></li>
           <% else %>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %></li>
           <% end %>
         </ul>
-      </div><!--/.nav-collapse -->
+      <!-- </div --><!--/.nav-collapse -->
     </div>
   </div>
 </div>
