@@ -1,7 +1,24 @@
-<h2>Add Items</h2>
-<%= render "form" %>
+<% if user_signed_in? %>
 
-<%= render "items" %>
+
+  <h2>What's in your fridge?</h2>
+  <h4>...freezer and pantry, too.</h4>
+  <%= render :partial => 'items/form', :locals => { :item => @item, :remote => true } %>
+  <% if current_user.items.empty? %>
+    <h3>Time to add some items</h3>
+  <% else %>
+    <%= render :partial => 'items/items' %>
+  <% end %>
+ 
+
+<% else %>
+
+  <div class="home">
+    <h2>Get the most out of your fridge.</h2>
+    <%= link_to "Add Items", new_item_path, :class => 'btn btn-primary btn-large' %>
+  </div>
+
+<% end %>
 
 
 

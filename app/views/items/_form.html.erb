@@ -1,8 +1,8 @@
-<%= form_for(@item, :remote => true) do |f| %>
-  <p>
-    <%= f.label :item_kind_name %>
-    <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path}%>
-  </p>
-  <%= f.submit %>
-<% end %>
+<div id="item_form">
+	<%= form_for(item, :remote => remote) do |f| %>
+	 <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "Add your item here" %>
+	  <%= f.select :storage, (insert_storage_options) %>
+	  <%= f.submit :class => "btn btn-primary" %>
+	<% end %>
+</div>
 

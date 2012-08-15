@@ -2,15 +2,6 @@ require 'spec_helper'
 
 
 describe "item pages" do
-  # @user = Fabricate(:@user_with_items)
-  # @user.items.each do |item|
-  #   item_kind = Fabricate(:item_kind)
-  #   item.item_kind_id = item_kind.id
-  #   shelf_life = Fabricate(:shelf_life)
-  #   shelf_life.item_kind_id = item_kind.id
-  #   location = Fabricate(:location)
-  #   location.shelf_life_id = shelf_life.id
-  # end
   before do
     @user = User.create(:email => "s@example.com", :password => "password")
     @item_kind = ItemKind.create(:name => "APRICOTS FRESH, RAW, CUT UP")
@@ -25,7 +16,7 @@ describe "item pages" do
     before { visit new_item_path }
 
     it { should have_selector('h2', :text => 'Add Items') }
-    it { should have_field("Item kind name") }
+    it { should have_field("item_item_kind_name") }
     it { should have_button('Create Item') }
 
     describe "logged in" do
@@ -34,7 +25,7 @@ describe "item pages" do
         before do
           sign_in(@user)
           visit items_path
-          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          fill_in "item_item_kind_name", :with => @item_kind.name
           click_button "Create Item"
         end
 
@@ -47,7 +38,7 @@ describe "item pages" do
     describe "logged out" do
       describe "create new item" do
         before do
-          fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
+          fill_in "item_item_kind_name", :with => @item_kind.name
           click_button "Create Item"
         end
 
@@ -60,23 +51,22 @@ describe "item pages" do
           end
 
           it { should have_selector('h2', :text => 'Add Items') }
-          it { should have_selector('input', :with => "APRICOTS FRESH, RAW, CUT UP") }
+          it { should have_selector('input', :with => @item_kind.name) }
         end
       end
     end
   end
 
   describe "index" do
-    before { visit items_path }
-
     describe "logged in" do
       before do
-        fill_in "Email", :with => @user.email
-        fill_in "Password", :with => @user.password
-        click_button "Sign in"
+        sign_in(@user)
+        visit items_path
       end
 
-      it { should have_selector('h3', :text => "Your Food Inventory") }
+
+      it { should have_selector('h3', :text => "Expiring Soon") }
+
 
       describe "has no items" do
         # Not sure if we'll need a prompt here when we go jquery so let's hold off for now.
@@ -85,20 +75,59 @@ describe "item pages" do
       describe "has items" do
         before do
             visit items_path
-            fill_in "Item kind name", :with => "APRICOTS FRESH, RAW, CUT UP"
-            click_button "Create Item"
+            fill_in "item_item_kind_name", :with => @item_kind.name
         end
-        # Necessarily ugly for now until we have our item_kind db with real content
-        it { should have_selector('li', :text => @user.items.first.item_kind.name) }
-        it { should have_selector('li', :text => @user.items.last.item_kind.name) }
+
+        ##failing because it is not triggering the autocomplete event
+        it { should have_select('item_storage', :with_options => "Refrigerator") }
+
+        describe "after the add item button is clicked" do
+          before do
+            click_button "Create Item"
+          end
+          it { should have_selector('li', :text => @user.items.first.item_kind.name) }
+          it { should have_selector('li', :text => @user.items.last.item_kind.name) }
+          it { should have_selector('li', :text => @user.items.last.storage) }
+          it { should have_link("Remove") }
+          it "has badges for where its stored"
+
+          it "removes an item on" do
+            expect { click_link "Remove" }.to change(@user.items, :count).by(-1)
+          end
+        end
 
       end
     end
 
     describe "logged out" do
-       it { should have_selector('h2', :text => "Sign in") }
-       it { should have_content("You need to sign in or sign up before continuing.") }
-    end
-  end
+       before { visit root_path }
 
+       it { should     have_content('Get the most out of your fridge.') }
+       it { should     have_selector('a', :text => 'Optifridge') }
+       it { should     have_selector('a', :text => 'Sign in') }
+       it { should_not have_selector('a', :text => 'Sign up') }
+       it { should     have_link("Add Items") }
+
+       describe "clicks on Sign in" do
+         before { click_link "Sign in" }
+
+         it { should have_selector('h2', :text => 'Sign in') }
+       end
+
+       describe "clicks on logo from non-root path" do
+         before do
+           visit new_user_session_path
+           click_link "Optifridge"
+         end
+
+         it { should have_selector('h2', :text => 'Get the most out of your fridge.') }
+       end
+
+       describe "click on Add items" do
+         before { click_link "Add Items" }
+
+         it { should have_selector('h2', :text => 'Add Items') }
+       end
+     end
+  end
 end

@@ -1,0 +1,3 @@
+module ItemKindsHelper
+
+end
