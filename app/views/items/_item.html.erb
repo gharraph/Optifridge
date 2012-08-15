@@ -5,6 +5,8 @@
     <%= get_storage_badge(item.storage) %>
     <div class="controls">
       <%= text_field_tag :expiration, item.expiration.to_s, :class => 'expiration', :id => "expiration#{item.id}"%>
-      <%= link_to 'Remove', item_path(item.id), :method => :delete, :remote => true, :class => "delete" %>
+      <%= link_to item_path(item.id), :method => :delete, :remote => true, :class => "delete" do%>
+      	<span>Remove</span>
+      <%end%>
     </div>
 </li>

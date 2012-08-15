@@ -34,7 +34,7 @@ body {
 
 @navbarBackground: #e0dac0;
 @navbarBackgroundHighlight: #E9E5D3;
-@navbarLinkColor: #000000;
+@navbarLinkColor: #fff;
 
 #item_item_kind_name{
   display:inline-block;
@@ -59,4 +59,31 @@ body {
 		position: absolute;
 		top: -9999px;
 	}
+}
+.controls{
+	input[type="text"]{
+	  border: none;
+	  background: none;
+	  box-shadow: none;
+	  width: 80px;
+	  display:inline;
+	  padding-right: 30px;
+
+	  &:hover{
+		text-decoration: underline;
+	}
+	}
+
+}
+	
+
+.navbar-inner{
+	background: #0085b2; /* Old browsers */
+	background: -moz-linear-gradient(top, #0085b2 0%, #00698c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0085b2), color-stop(100%,#00698c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #0085b2 0%,#00698c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #0085b2 0%,#00698c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #0085b2 0%,#00698c 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #0085b2 0%,#00698c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0085b2', endColorstr='#00698c',GradientType=0 ); /* IE6-9 */
 }
