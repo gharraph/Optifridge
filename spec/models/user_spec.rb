@@ -30,8 +30,10 @@ describe User do
   end
 
   describe "email sends" do
+
     it "it should be able to send an email with all associated items" do
-      user.send_weekly_email
+      user.save
+      User.send_weekly_email
       ActionMailer::Base.deliveries.last.to.should include(user.email)
     end
   end

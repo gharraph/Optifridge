@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :items, :order => 'expiration ASC'
 
-  def send_weekly_email
-    UserMailer.weekly_email(self).deliver
+  def self.send_weekly_email
+    User.all.each do |user|
+      UserMailer.weekly_email(user).deliver
+    end
   end
 end
