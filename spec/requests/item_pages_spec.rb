@@ -64,8 +64,15 @@ describe "item pages" do
         visit items_path
       end
 
-
       it { should have_selector('h3', :text => "Expiring Soon") }
+      it { should have_link("Or upload an image of a receipt and we'll add your items for you") }
+
+      describe "uploading an image" do
+        before { click_link "Or upload an image of a receipt and we'll add your items for you" }
+
+        it { should have_selector('h3', :text => 'Upload the image of your receipt') }
+        it { should have_button('Choose File') }
+      end
 
 
       describe "has no items" do
