@@ -2,6 +2,9 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :show]
   after_filter :reset_session, :only => :create
 
+  def show
+  end
+
   def new
     item_from_reuse_data_or_new
   end

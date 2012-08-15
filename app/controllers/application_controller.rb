@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
   # Extends devise functionality for better redirects
   def after_sign_in_path_for(resource)
     if !session[:return_to].nil?
-      warn "******************************"
-      warn resource
-      warn session[:return_to]
       session[:return_to]
       #redirect_to :controller => "item", :action => "create"
     else
@@ -31,7 +28,7 @@ class ApplicationController < ActionController::Base
   def generate_redirect_path
     redirect_path = request.fullpath
     if (request.parameters['action'] == "create")
-      redirect_path += '/new' 
+      redirect_path += '/new'
     end
     # else
     #   redirect_path = root_path
