@@ -1,8 +1,10 @@
-<li id="<%= item.id %>"><p>
-      <%= item.item_kind.name unless item.item_kind.nil? %> <%= get_storage_badge(item.storage) %>
-      <div class="controls">
-        expires at <%= text_field_tag :expiration, item.expiration.to_s, :class => 'expiration'%>
-        <%= link_to 'Remove', item_path(item.id), :method => :delete %>
-      </div>
+<li id="<%= item.id %>">
+		<p>
+      <%= item.item_kind.name unless item.item_kind.nil? %> 
     </p>
+    <%= get_storage_badge(item.storage) %>
+    <div class="controls">
+      <%= text_field_tag :expiration, item.expiration.to_s, :class => 'expiration'%>
+      <%= link_to 'Remove', item_path(item.id), :method => :delete, :remote => true %>
+    </div>
 </li>

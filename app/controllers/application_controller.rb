@@ -24,13 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def generate_redirect_path
-    redirect_path = request.fullpath
-    if (request.parameters['action'] == "create")
-      redirect_path += '/new'
-    end
-    # else
-    #   redirect_path = root_path
-    # end
     redirect_path = new_item_path if (request.parameters['action'] == "create")
     session[:return_to] = redirect_path
   end

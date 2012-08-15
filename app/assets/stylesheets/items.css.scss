@@ -24,3 +24,30 @@ ul.ui-autocomplete {
     }
   }
 }
+
+.itemsIndex{
+  li{
+    background: url("/assets/graphite_line.png") bottom repeat-x;
+    overflow: hidden;
+    padding: 13px 0 10px;
+    font-size: 18px;
+    p{
+      display:inline;
+      margin:0;
+      width: 50%;
+    }
+    .controls{
+      float:right;
+      display:inline;
+    }
+  }
+
+}
+
+#item_form{
+  background: #fff;
+  border: 3px solid #dddddd;
+  border-radius: 10px;
+  padding-top: 20px;
+/*  border-image: url(/assets/form_border.pngc) 3px 3px 3px 3px round round;
+*/}
