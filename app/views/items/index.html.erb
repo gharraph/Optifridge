@@ -1,8 +1,4 @@
 <% if user_signed_in? %>
-
-
-  <h2>What's in your fridge?</h2>
-  <h4>...freezer and pantry, too.</h4>
   <%= render :partial => 'items/form', :locals => { :item => @item, :remote => true } %>
   <% if current_user.items.empty? %>
     <h3>Time to add some items</h3>

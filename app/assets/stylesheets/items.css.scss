@@ -31,6 +31,7 @@ ul.ui-autocomplete {
     overflow: hidden;
     padding: 13px 0 10px;
     font-size: 18px;
+    position: relative;
     p{
       display:inline;
       margin:0;
@@ -39,6 +40,24 @@ ul.ui-autocomplete {
     .controls{
       float:right;
       display:inline;
+      .delete{ 
+        display:none;
+        background: url("/assets/x.png") center no-repeat;
+        width:20px;
+        height:20px;
+        position:absolute;
+        top: 20px;
+        right: 0px;
+        span{
+          position:absolute;
+          top: -9999px;
+        }
+      }
+      &:hover{
+        .delete{
+          display:inline-block;
+        }
+      }
     }
   }
 
