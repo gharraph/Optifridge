@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if !session[:return_to].nil?
       session[:return_to]
-      #redirect_to :controller => "item", :action => "create"
     else
       super
     end
@@ -16,7 +15,6 @@ class ApplicationController < ActionController::Base
     if !user_signed_in?
       store_unauthenticated_input
       generate_redirect_path
-      session[:create] = true
     end
     super
   end
@@ -33,6 +31,7 @@ class ApplicationController < ActionController::Base
     # else
     #   redirect_path = root_path
     # end
+    redirect_path = new_item_path if (request.parameters['action'] == "create")
     session[:return_to] = redirect_path
   end
 
