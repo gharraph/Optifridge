@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :signed_in_home, :only => :index
-  before_filter :authenticate_user!, :only => [:create, :index]
+  before_filter :authenticate_user!, :only => [:create, :show]
   after_filter :reset_session, :only => :create
 
   def new
@@ -26,8 +25,10 @@ class ItemsController < ApplicationController
 
   def index
     current_user.send_weekly_email if params[:send_email] == "true"
-    @items = current_user.items
-    item_from_reuse_data_or_new
+    if user_signed_in?
+      @items = current_user.items
+      item_from_reuse_data_or_new
+    end
   end
 
   def destroy
@@ -59,9 +60,5 @@ class ItemsController < ApplicationController
       else
         @item = Item.new
       end
-    end
-
-    def signed_in_home
-      redirect_to static_home_path if !user_signed_in? && request.fullpath != "/items"
     end
 end

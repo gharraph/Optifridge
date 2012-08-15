@@ -6,7 +6,6 @@ Optifridge::Application.routes.draw do
   resources :item_kinds
 
   root :to => 'items#index'
-  match 'home' => 'static#home', :as => 'static_home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
