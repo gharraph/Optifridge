@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
       flash[:notice] = "Image uploaded, yo!"
       translate_image
       @image.items_from_receipt(current_user)
-      redirect_to items_path
+      redirect_to root_path
     else
       flash[:error] = "Something went wrong, bro."
       render new_image_path
@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
   private
     def translate_image
       #old key BMCxkJ6jPP15FBZdtJ5aY864KvRsxC1x
-      ocr_api_url = "http://svc.webservius.com/v1/wisetrend/wiseocr/submit?wsvKey=kbPy3KcUFj6s1IJQHnfshS7fSi_bpXXh"
+      ocr_api_url = "http://svc.webservius.com/v1/wisetrend/wiseocr/submit?wsvKey=kbPy3KcUFj6s1lJQHnfshS7fSi_bpXXh"
       body_string = "<Job><InputURL>#{ @image.stored_at }</InputURL></Job>"
       options = { :body => body_string, :headers => { 'Content-type' => "text/xml" }, :timeout => 120 }
       get_translation(HTTParty.post(ocr_api_url, options))
@@ -30,6 +30,8 @@ class ImagesController < ApplicationController
     end
 
     def get_translation(response)
+      warn "*"*50
+      warn response
       @job_uri = Nokogiri::XML(response.to_xml).xpath("//JobURL")
       while !image_done_processing?
         warn ("*" * 50) + "\n" + "Checking OCR processing status again.."
@@ -48,6 +50,9 @@ class ImagesController < ApplicationController
     end
 
     def image_done_processing?
+      warn "*"*50
+      warn "Checking to see if its done processing:"
+      warn Nokogiri::XML(open(@job_uri.children.text)).xpath("//Status").children.text
       Nokogiri::XML(open(@job_uri.children.text)).xpath("//Status").children.text == "Finished"
     end
 end
