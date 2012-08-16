@@ -31,10 +31,10 @@ $(function(){
         }
     });
 
-    $('.image-upload').click(function(e) {
-        e.preventDefault();
-        $('.modal').modal('show');
-    });
+    // $('.image-upload').click(function(e) {
+    //     e.preventDefault();
+    //     $('.modal').modal('show');
+    // });
     // Wasn't able to load image in a modal but saving this here for now.
     // $('.add-image').click(function(e) {
     //     // $('.add-image').submit(function(e){
