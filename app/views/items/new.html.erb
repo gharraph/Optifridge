@@ -1,6 +1,8 @@
-<h2>Add Items</h2>
-<%= render :partial => 'items/form', :locals => { :item => @item, :remote => false } %>
-
+<h2>Let's add some food.</h2>
+<h3>You can enter them manually OR upload your receipts. We'll send you weekly reminders about food items that about to expire.</h3>
+<div class="new">
+	<%= render :partial => 'items/form', :locals => { :item => @item, :remote => false } %>
+</div>
 
 
 

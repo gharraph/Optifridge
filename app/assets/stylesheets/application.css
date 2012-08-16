@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+
+.brand{
+  text-transform: uppercase;
+}
+
+.login a{
+  display: inline-block;
+  padding-left: 40px !important;
+  background-image: url("/assets/icons.png");
+  background-position: 2px -537px;
+  background-repeat: no-repeat;
+
+}
+

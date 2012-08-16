@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 # require_relative '../lib/tasks/dayconverter.rb'
 # agent = Mechanize.new
 # (16001..19600).each do |id|
@@ -16,6 +17,7 @@
 #     end
 #   end
 # end
+
 
 # Don't look below.  Just don't.  Pretend this never happened.  Only works in production.
 synonym_matches = [ {:name => "ORG DARK CHOC BAR", :item_kind_id => 518 },
