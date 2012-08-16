@@ -1,6 +1,6 @@
 <li id="<%= item.id %>">
 		<p>
-      <%= item.item_kind_id %><%= item.item_kind.name unless item.item_kind.nil? %> 
+      <%= item.item_kind.name unless item.item_kind.nil? %> 
     </p>
     <%= get_storage_badge(item.storage) %>
     <div class="controls">
