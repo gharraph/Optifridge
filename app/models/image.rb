@@ -48,5 +48,4 @@ class Image < ActiveRecord::Base
     def remove_empty(text_arr)
       text_arr.select{|element| !element.empty? }
     end
-
 end

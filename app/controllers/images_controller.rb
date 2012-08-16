@@ -11,6 +11,7 @@ class ImagesController < ApplicationController
     if @image.save
       flash[:notice] = "Image uploaded, yo!"
       translate_image
+      @image.items_from_receipt(current_user)
       redirect_to items_path
     else
       flash[:error] = "Something went wrong, bro."
@@ -38,8 +39,7 @@ class ImagesController < ApplicationController
       end
       job_uri_doc = Nokogiri::XML(open(@job_uri.children.text))
       translation_raw = open(job_uri_doc.xpath('//Uri')[0].children.text).read
-      warn ("*"*50) + "\n"
-      translation_raw.split("\r\n\r\n").each { |l| warn l }
+      @image.update_attributes(:translation => translation_raw)
     end
 
     def image_done_processing?
