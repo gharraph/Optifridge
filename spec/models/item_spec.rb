@@ -19,6 +19,4 @@ describe Item do
     end
   end
 
-  # it { should validate_presence_of(:storage) }
-
 end

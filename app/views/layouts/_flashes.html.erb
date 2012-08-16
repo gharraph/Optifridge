@@ -1,6 +1,6 @@
 <!-- Look up how they handle flashes on  -->
 <% if flash[:notice] || flash[:error] || flash[:alert] %>
   <% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => "alert alert-#{key}" %>
+    <%= content_tag :div, msg, :class => "alert alert-#{ make_flash_class(key) }" %>
   <% end %>
 <% end %>

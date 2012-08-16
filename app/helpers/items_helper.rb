@@ -9,7 +9,7 @@ module ItemsHelper
     when "Freezer"
       content_tag(:span, "Freezer", :class => 'label label-info')
     else
-      puts "Something went wrong, bro."
+      nil
     end
   end
 
