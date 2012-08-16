@@ -1,3 +1,4 @@
 $('ul[class=itemsIndex]').append("<%=j render :partial => 'items/item', :locals => {:item => @item}%>")
 $('.span12').prepend("<%= j render :partial => 'layouts/flashes' %>")
 $(".alert-notice").fadeOut(5000);
+$('#item_item_kind_name').val('');
