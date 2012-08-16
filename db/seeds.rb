@@ -18,8 +18,6 @@
 #   end
 # end
 
-synonym_matches.each { |type| ItemSynonym.create(type) }
-
 # Don't look below.  Just don't.  Pretend this never happened.  Only works in production.
 synonym_matches = [ {:name => "ORG DARK CHOC BAR", item_kind_id => 518 },
                     {:name => "COCONUT WATER", item_kind_id => 578 },
@@ -79,3 +77,5 @@ synonym_matches = [ {:name => "ORG DARK CHOC BAR", item_kind_id => 518 },
                     {:name => "ORG BABY CARROT+", item_kind_id => 363 },
                     {:name => "RT HUMMUS", item_kind_id => 1072 }
                   ]
+                  
+synonym_matches.each { |type| ItemSynonym.create(type) }
