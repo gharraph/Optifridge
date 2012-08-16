@@ -22,3 +22,4 @@ agent = Mechanize.new
     end
   end
 end
+

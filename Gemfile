@@ -7,6 +7,10 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'mechanize'
 gem 'sendgrid'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'httparty'
+gem 'nokogiri'
 
 group :production do
   gem 'pg'

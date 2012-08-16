@@ -4,6 +4,7 @@ describe User do
   let(:user) { Fabricate(:user_with_items) }
 
   it { should have_many(:items) }
+  it { should have_many(:images) }
 
   it "should throw an error if a user doesn't have an email" do
     expect { User.create(:password => "password") }.should raise_error
