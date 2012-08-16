@@ -8,6 +8,7 @@ class Item < ActiveRecord::Base
   def set_expiration
     if self.storage.nil?
       default_shelf_life = self.item_kind.shelf_lives.first
+      self.storage = self.item_kind.shelf_lives.first.location.name
       self.expiration = Date.today + default_shelf_life.duration
     else
       shelf_life = self.item_kind.shelf_lives.select {|shelf_life| shelf_life.location.name == self.storage }

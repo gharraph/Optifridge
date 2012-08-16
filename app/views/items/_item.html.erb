@@ -1,4 +1,4 @@
-<li id="<%= item.id %>">
+<li id="<%= item.id %>" class="<%= flag_expiration(item) %>">
 		<p>
       <%= get_storage_badge(item.storage) %>
       <%= print_name(item.item_kind.name) %> 

@@ -5,7 +5,7 @@
 	line-height: 1.5;
 	text-decoration: none;
 	text-align: left;
-	color: #666;
+	color: #DDD;
 	outline: none;
 	vertical-align: middle;
 	display: inline-block;
@@ -32,6 +32,7 @@
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
+	background: url("/assets/triangle_down.png") center right no-repeat;
 }
 
 .selectBox-dropdown .selectBox-arrow {

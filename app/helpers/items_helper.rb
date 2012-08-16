@@ -34,4 +34,12 @@ module ItemsHelper
       end
     end
   end
+
+  def flag_expiration(item)
+    if item.expiration - Date.today <= 7
+      "one-week"
+    elsif item.expiration - Date.today <= 14
+      "two-weeks"
+    end
+  end
 end
