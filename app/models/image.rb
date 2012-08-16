@@ -26,6 +26,8 @@ class Image < ActiveRecord::Base
   end
 
   def check_against_synonyms(line)
+    warn 'checking against synonyms'
+    warn line + " being checked "
     @synonyms.each do |synonym|
       create_item(synonym.item_kind_id) if synonym.match?(line)
     end
@@ -38,14 +40,17 @@ class Image < ActiveRecord::Base
   private
 
     def processed_receipt_text
+      warn 'processed receipt'
       split_lines(self.translation)
     end
 
     def split_lines(text_block)
+      warn 'split lines'
       remove_empty(text_block.split('\n'))
     end
 
     def remove_empty(text_arr)
+      warn 'remove empty'
       text_arr.select{|element| !element.empty? }
     end
 end
