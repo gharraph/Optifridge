@@ -65,13 +65,13 @@ describe "item pages" do
       end
 
       it { should have_selector('h3', :text => "Expiring Soon") }
-      it { should have_link("Or upload an image of a receipt and we'll add your items for you") }
+      it { should have_link("Or upload your receipt") }
 
       describe "uploading an image" do
-        before { click_link "Or upload an image of a receipt and we'll add your items for you" }
+        before { click_link "Or upload your receipt" }
 
-        it { should have_selector('h3', :text => 'Upload the image of your receipt') }
-        it { should have_button('Choose File') }
+        it { should have_selector('h2', :text => 'Add a file') }
+        it { should have_button('Scan my receipt') }
       end
 
 
