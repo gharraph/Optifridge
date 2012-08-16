@@ -1,3 +1,6 @@
 $('#<%= @item.id %>').slideUp(500, function(){
 	$(this).remove();
 });
+
+$('.span12').prepend("<%= j render :partial => 'layouts/flashes' %>")
+$(".alert-notice").fadeOut(5000);
