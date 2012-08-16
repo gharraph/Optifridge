@@ -6,9 +6,8 @@ class Item < ActiveRecord::Base
   validates_presence_of :expiration, :item_kind, :user
 
   def set_expiration
-    if self.storage.nil? && !self.item_kind.shelf_lives.first.location.nil?
+    if self.storage.nil? 
       default_shelf_life = self.item_kind.shelf_lives.first
-      self.storage = self.item_kind.shelf_lives.first.location.name
       self.expiration = Date.today + default_shelf_life.duration
     else
       shelf_life = self.item_kind.shelf_lives.select {|shelf_life| shelf_life.location.name == self.storage }
