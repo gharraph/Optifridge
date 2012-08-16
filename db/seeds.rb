@@ -5,18 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# require_relative '../lib/tasks/dayconverter.rb'
-# 
-# agent = Mechanize.new
-# (16001..19000).each do |id|
-#   agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|
-#     if page_has_content?(food_page)
-#       ItemKind.create(:name => food_page.parser.css('.bigBlackHeading').text.strip!)
-#       create_shelf_life_and_location(food_page)
-#       puts ItemKind.last.inspect
-#     end
-#   end
-# end
+require_relative '../lib/tasks/dayconverter.rb'
+#
+agent = Mechanize.new
+(16001..19000).each do |id|
+  agent.get("http://www.stilltasty.com/fooditems/index/#{id}") do |food_page|
+    if page_has_content?(food_page)
+      ItemKind.create(:name => food_page.parser.css('.bigBlackHeading').text.strip!)
+      create_shelf_life_and_location(food_page)
+      puts ItemKind.last.inspect
+    end
+  end
+end
 
 synonym_matches.each { |type| ItemSynonym.create(type) }
 
