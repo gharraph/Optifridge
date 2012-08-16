@@ -35,29 +35,29 @@ $(function(){
         e.preventDefault();
         $('.modal').modal('show');
     });
-
-    $('.add-image').click(function(e) {
-        // $('.add-image').submit(function(e){
-        //     alert('Submitted');
-        // });
-        var form_data = $('.image-form').find('input').serializeArray();
-        console.log(form_data);
-        var file = $('#image_file').val();
-        // $.ajax({
-        //     url: '/images',
-        //     type: 'POST',
-        //     data: "file=" + file,
-        //     success: function(e){
-        //         alert('Uploaded');
-        //     }
-        // });
-        //Need to save image
-        //Need to ping OCR-IT
-        //Need to wait for a response
-        //Need to process the response
-        //Then we can drop the modal
-        $('.modal').modal('hide');
-    });
+    // Wasn't able to load image in a modal but saving this here for now.
+    // $('.add-image').click(function(e) {
+    //     // $('.add-image').submit(function(e){
+    //     //     alert('Submitted');
+    //     // });
+    //     var form_data = $('.image-form').find('input').serializeArray();
+    //     console.log(form_data);
+    //     var file = $('#image_file').val();
+    //     // $.ajax({
+    //     //     url: '/images',
+    //     //     type: 'POST',
+    //     //     data: "file=" + file,
+    //     //     success: function(e){
+    //     //         alert('Uploaded');
+    //     //     }
+    //     // });
+    //     //Need to save image
+    //     //Need to ping OCR-IT
+    //     //Need to wait for a response
+    //     //Need to process the response
+    //     //Then we can drop the modal
+    //     $('.modal').modal('hide');
+    // });
 
 });
 
