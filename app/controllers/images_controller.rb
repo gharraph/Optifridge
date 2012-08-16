@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
     end
 
     def get_raw_translation
-      @raw_translation = open(@job_uri_doc.xpath('//Uri')[0].children.text).read
+      @raw_translation = open(@job_uri_doc.xpath('//Uri')[0].children.text).read.gsub(/\W/, '')
     end
 
     def get_job_uri
