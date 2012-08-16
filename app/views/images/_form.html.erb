@@ -1,4 +1,5 @@
 <%= form_for current_user.images.new, :html => {:multipart => true }, :class => 'image-form' do |f| %>
     <%= f.file_field :file, :class => "btn btn-success" %>
-  <%= f.submit "Scan my receipt", :class => "btn btn-primary" %>
+  <%= f.submit "Scan my receipt", :class => "btn btn-primary", :id => 'image-submit' %>
 <% end %>
+

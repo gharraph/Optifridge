@@ -31,7 +31,7 @@ $(function(){
         }
     });
 
-    $('.modal-image').click(function(e) {
+    $('.image-upload').click(function(e) {
         e.preventDefault();
         $('.modal').modal('show');
     });

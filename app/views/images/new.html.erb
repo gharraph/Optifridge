@@ -1,2 +1,20 @@
 <h2>Add a file</h2>
 <%= render :partial => 'form' %>
+<div class="hidden">
+</div>
+
+<div class="modal hide" id="myModal">
+  <div class="modal-header">
+    <h3>So, this might take a while...</h3>
+  </div>
+  <div class="modal-body">
+	 <%= image_tag "3.gif", :class => 'loading'  %>
+		<span class="hidden">Yeah, it takes a while, we know.</span>
+		<span class="hidden">I mean, your pictures going all the way to China.</span>
+		<span class="hidden">And back.</span>
+		<span class="hidden">Seriously, if you're reading this, I blame someone else.</span>
+  </div>
+  <div class="modal-footer">
+  </div> 
+</div>
+
