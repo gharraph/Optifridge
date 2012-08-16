@@ -8,6 +8,8 @@ $(function(){
         source: item_kinds_path
     });
 
+    $("#item_storage").selectBox();
+
     $('#item_item_kind_name').on("autocompleteselect", function (event, ui) {
         $('#item_storage').empty();
         var item_kind_path =  "/item_kinds/" + ui.item.label;
@@ -16,7 +18,16 @@ $(function(){
                 var option = '<option value="' + value + '">' + value + '</option>';
                 $('#item_storage').append(option);
             });
+            $("#item_storage").selectBox().refresh();
         });
+    });
+
+    $('.expiration').focus(function() {
+        $(this).css({"background": "#ffffbf"})
+    });
+
+    $('.expiration').blur(function(){
+        $(this).css({"background": "none"})
     });
 
     $('.expiration').datepicker({

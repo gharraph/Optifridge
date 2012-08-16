@@ -29,44 +29,77 @@ ul.ui-autocomplete {
   li{
     background: url("/assets/graphite_line.png") bottom repeat-x;
     overflow: hidden;
-    padding: 13px 0 10px;
-    font-size: 18px;
+    padding: 8px 0 6px;
+    font-size: 14px;
     position: relative;
     p{
-      display:inline;
+      display:inline-block;
       margin:0;
       width: 50%;
+      padding-top: 4px;
     }
-    .controls{
-      float:right;
-      display:inline;
-      .delete{ 
+    &:hover{
+      .delete{
+        display:inline-block;
+      }
+    }
+
+    .delete{ 
         display:none;
         background: url("/assets/x.png") center no-repeat;
         width:20px;
         height:20px;
         position:absolute;
-        top: 20px;
+        top: 12px;
         right: 0px;
         span{
           position:absolute;
           top: -9999px;
         }
       }
-      &:hover{
-        .delete{
-          display:inline-block;
-        }
-      }
+    .controls{
+      float:right;
+      display:inline; 
     }
   }
-
 }
 
-#item_form{
-  background: #fff;
-  border: 3px solid #dddddd;
-  border-radius: 10px;
-  padding-top: 20px;
-/*  border-image: url(/assets/form_border.pngc) 3px 3px 3px 3px round round;
-*/}
+.form_container{
+  padding-right: 20px;
+  margin-bottom: 20px;
+  background: url("/assets/vertical_line.png") right center no-repeat;
+  #item_form{
+    display:inline-block;
+    background: #fff;
+    border: 3px solid #dddddd;
+    border-radius: 10px;
+    border-image: url(/assets/form_border.png) 3px 3px 3px 3px round round;
+    form{
+      margin: 0;
+    }
+  }
+}
+
+.receipt{
+  float:left;
+  margin: 0px 20px 0 20px;
+  display:block;
+  width: 38px;
+  height: 60px;
+  background: url("/assets/receipt_icon.png") no-repeat 0 0;
+  position:relative;
+  span{
+    position:absolute;
+    top: -9999px;
+  }
+  &:hover{
+    background-position: -63px 0;
+  }
+}
+
+.new{
+  padding-top: 40px;
+}
+
+
+
