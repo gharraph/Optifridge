@@ -2,10 +2,10 @@
 
 This application will notify you when your food is about to expire! All you need is to scan your grocery receipt and BooooM your hooked to our app:)
 
-You can find Optifidge on optifridge.herokuapp.com 
+You can find Optifidge on optifridge.herokuapp.com
 
 This awesome app is brought you by:
-=====Patrick cushion
+=====Patrick Cushing
 =====Tripta Gupta
 =====Paul Zaich
 =====Sherief Gharraph
