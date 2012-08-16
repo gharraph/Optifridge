@@ -2,3 +2,4 @@ $('ul[class=itemsIndex]').append("<%=j render :partial => 'items/item', :locals 
 $('.span12').prepend("<%= j render :partial => 'layouts/flashes' %>")
 $(".alert-notice").fadeOut(5000);
 $('#item_item_kind_name').val('');
+$('ul[class=itemsIndex] li:last-child').effect("highlight", {color: '#B5A642'}, 3000);
