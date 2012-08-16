@@ -58,7 +58,7 @@ body {
 }
 
 .navbar .brand{
-	margin-top: 30px;
+	margin-top: 10px;
 	font-size: 36px;
 }
 .login{
@@ -79,6 +79,7 @@ body {
   box-shadow: none;
   font-size: 16px;
   min-width: 400px;
+  background: url("/assets/vertical_line.png") no-repeat right center;
 }
 
 #user_password{
@@ -94,8 +95,13 @@ body {
 }
 
 #item_form{
-	padding: 9px 0;
+	padding: 9px 10px;
 	position:relative;
+	border-width: 3px;
+	-moz-border-image: url("/assets/form_border.png") 3 repeat;
+	-webkit-border-image: url("/assets/form_border.png") 3 repeat;
+	-o-border-image: url("/assets/form_border.png") 3 repeat;
+	border-image: url("/assets/form_border.png") 3 fill repeat;
 	.btn{
 		display: inline-block;
 	}
@@ -141,29 +147,38 @@ body {
 
 .btn-danger{
 	background: #ff5b10; /* Old browsers */
-background: -moz-linear-gradient(top, #ff5b10 0%, #ff0000 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5b10), color-stop(100%,#ff0000)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ff5b10 0%,#ff0000 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ff5b10 0%,#ff0000 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ff5b10 0%,#ff0000 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ff5b10 0%,#ff0000 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5b10', endColorstr='#ff0000',GradientType=0 ); /* IE6-9 */
+background: url("/assets/plus.png") -moz-linear-gradient(top, #ff5b10 0%, #ff0000 100%) no-repeat center center; /* FF3.6+ */
+background: url("/assets/plus.png") -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5b10), color-stop(100%,#ff0000)) no-repeat center center; /* Chrome,Safari4+ */
+background: url("/assets/plus.png") -webkit-linear-gradient(top, #ff5b10 0%,#ff0000 100%) no-repeat center center; /* Chrome10+,Safari5.1+ */
+background: url("/assets/plus.png") -o-linear-gradient(top, #ff5b10 0%,#ff0000 100%) no-repeat center center; /* Opera 11.10+ */
+background: url("/assets/plus.png") -ms-linear-gradient(top, #ff5b10 0%,#ff0000 100%) no-repeat center center; /* IE10+ */
+background: url("/assets/plus.png") linear-gradient(to bottom, #ff5b10 0%,#ff0000 100%) no-repeat center center; /* W3C */
+filter: url("/assets/plus.png") progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5b10', endColorstr='#ff0000',GradientType=0 ) no-repeat center center; /* IE6-9 */
 &:hover{
 	background: #ff9999; /* Old browsers */
-	background: -moz-linear-gradient(top, #ff9999 0%, #ff0000 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9999), color-stop(100%,#ff0000)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #ff9999 0%,#ff0000 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #ff9999 0%,#ff0000 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #ff9999 0%,#ff0000 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #ff9999 0%,#ff0000 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9999', endColorstr='#ff0000',GradientType=0 ); /* IE6-9 */
+	background: url("/assets/plus.png") -moz-linear-gradient(top, #ff9999 0%, #ff0000 100%) no-repeat center center; /* FF3.6+ */
+	background: url("/assets/plus.png") -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9999), color-stop(100%,#ff0000)) no-repeat center center; /* Chrome,Safari4+ */
+	background: url("/assets/plus.png") -webkit-linear-gradient(top, #ff9999 0%,#ff0000 100%) no-repeat center center; /* Chrome10+,Safari5.1+ */
+	background: url("/assets/plus.png") -o-linear-gradient(top, #ff9999 0%,#ff0000 100%) no-repeat center center; /* Opera 11.10+ */
+	background: url("/assets/plus.png") -ms-linear-gradient(top, #ff9999 0%,#ff0000 100%) no-repeat center center; /* IE10+ */
+	background: url("/assets/plus.png") linear-gradient(to bottom, #ff9999 0%,#ff0000 100%) no-repeat center center; /* W3C */
+	filter: url("/assets/plus.png") progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9999', endColorstr='#ff0000',GradientType=0 ) no-repeat center center; /* IE6-9 */
 	}
 }
 
 .form_container{
 	.btn-danger{
+		position: relative;
 		margin: 0;
-		padding: 19px 14px 19px 14px;
 		margin-left: -4px;
+		height: 60px;
+		width: 60px;
+		background-image: url("/assets/plus.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		span{
+			position: absolute;
+			top: -9999px;
+		}
 	}
 }

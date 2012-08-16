@@ -4,13 +4,13 @@
    <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "What's in your fridge, pantry or freezer?" %>
     <%= f.select :storage, (insert_storage_options) %>
   </div>
-    <%= f.button "Add", :class => "btn btn-danger"%>
+    <%= f.button raw("<span>Add</span>"), :class => "btn btn-danger"%>
   <% end %>
 
 </div>
 
 <%= link_to new_image_path, :class => "receipt" do %>
-    <span>Or upload your receipt</span>
+    <span>Upload Receipt</span>
 <%end%>
 
 
