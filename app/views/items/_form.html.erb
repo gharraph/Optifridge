@@ -1,8 +1,32 @@
 <div id="item_form">
-	<%= form_for(item, :remote => remote) do |f| %>
-	 <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "What's in your fridge, pantry or freezer?" %>
-	  <%= f.select :storage, (insert_storage_options) %>
-	  <%= f.submit :class => "btn btn-primary" %>
-	<% end %>
+
+  <%= form_for(item, :remote => remote) do |f| %>
+   <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "What's in your fridge, pantry or freezer?" %>
+    <%= f.select :storage, (insert_storage_options) %>
+    <%= f.submit :class => "btn btn-primary" %>
+  <% end %>
+
 </div>
+<div id="image_upload">
+  <% if user_signed_in? %>
+  <%= link_to "Or upload an image of a receipt and we'll add your items for you", new_image_path, class: 'modal-image', toggle: 'modal' %>
+  <% end %>
+</div>
+
+<div class="modal hide" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Upload the image of your receipt</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for current_user.images.new, :html => {:multipart => true }, :class => 'image-form' do |f| %>
+      <%= f.file_field :file %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+    <a href="#" class="btn btn-primary add-image">Add Items from My Receipt</a>
+    <% end %>
+  </div>
+</div>
+
 

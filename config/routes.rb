@@ -1,9 +1,7 @@
 Optifridge::Application.routes.draw do
   devise_for :users
 
-  resources :items
-
-  resources :item_kinds
+  resources :items, :item_kinds, :images
 
   root :to => 'items#index'
 

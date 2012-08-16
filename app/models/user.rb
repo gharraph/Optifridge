@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :items, :order => 'expiration ASC'
+  has_many :images
 
   def self.send_weekly_email
     User.all.each do |user|
