@@ -26,6 +26,8 @@ class Image < ActiveRecord::Base
   end
 
   def check_against_synonyms(line)
+    warn 'checking against synonyms'
+    warn line + " being checked "
     @synonyms.each do |synonym|
       create_item(synonym.item_kind_id) if synonym.match?(line)
     end
