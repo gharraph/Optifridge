@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120813230217) do
+ActiveRecord::Schema.define(:version => 20120815233902) do
 
   create_table "item_kinds", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "item_synonyms", :force => true do |t|
+    t.string   "name"
+    t.integer  "item_kind_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "item_synonyms", ["name"], :name => "index_item_synonyms_on_name"
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
