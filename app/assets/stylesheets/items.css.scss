@@ -7,20 +7,22 @@ ul.ui-autocomplete {
   list-style: none;
   margin: 0;
   padding: 0;
-  border: solid 1px #999;
+  border: solid 1px #BBB; /* should be the same border width as .selectBox-dropdown */
+  -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
   cursor: default;
   li {
     background-color: #FFF;
-    border-top: solid 1px #DDD;
     margin: 0;
     padding: 0;
     a {
-      color: #000;
+      text-decoration:none;
       display: block;
       padding: 3px;
     }
     a.ui-state-hover, a.ui-state-active {
-      background-color: #FFFCB2;
+      background-color: #C8DEF4;
     }
   }
 }
@@ -29,47 +31,92 @@ ul.ui-autocomplete {
   li{
     background: url("/assets/graphite_line.png") bottom repeat-x;
     overflow: hidden;
-    padding: 13px 0 10px;
-    font-size: 18px;
+    padding: 8px 0 6px;
+    font-size: 14px;
     position: relative;
     p{
-      display:inline;
+      display:inline-block;
       margin:0;
-      width: 50%;
+      padding-top: 4px;
     }
-    .controls{
-      float:right;
-      display:inline;
-      .delete{ 
+    &:hover{
+      .delete{
+        display:inline-block;
+      }
+    }
+
+
+
+    .delete{ 
         display:none;
         background: url("/assets/x.png") center no-repeat;
         width:20px;
         height:20px;
         position:absolute;
-        top: 20px;
+        top: 12px;
         right: 0px;
         span{
           position:absolute;
           top: -9999px;
         }
       }
-      &:hover{
-        .delete{
-          display:inline-block;
-        }
-      }
+    .controls{
+      float:right;
+      display:inline; 
     }
   }
-
 }
 
-#item_form{
-  background: #fff;
-  border: 3px solid #dddddd;
-  border-radius: 10px;
-  padding-top: 20px;
-/*  border-image: url(/assets/form_border.pngc) 3px 3px 3px 3px round round;
-*/}
+.form_container{
+  padding-right: 20px;
+  margin-bottom: 20px;
+  background: url("/assets/vertical_line.png") right center no-repeat;
+  #item_form{
+    display:inline-block;
+    background: #fff;
+    form{
+      margin: 0;
+    }
+  }
+}
+
+.receipt{
+  float:left;
+  margin: 0px 20px 0 90px;
+  display:block;
+  width: 38px;
+  height: 60px;
+  background: url("/assets/receipt_icon.png") no-repeat 0 0;
+  position:relative;
+  span{
+    position:absolute;
+    top: 15px;
+    left: -70px;
+    color: #ddd;
+  }
+  &:hover{
+    span{
+      color: #ff7373;
+    } 
+    background-position: -63px 0;
+  }
+}
+
+.new{
+  padding-top: 40px;
+}
+
+
+.one-week{
+   background-color: rgba(255, 207, 191, 0.3) !important;
+  }
+.two-weeks{
+  background-color: rgba(255,255,191, 0.3) !important;
+}
+
+
+
+
 
 #image-frame {
   height: 400px

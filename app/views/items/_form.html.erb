@@ -1,15 +1,19 @@
-<div id="item_form">
-
+<div class="pull-left form_container">
+  <div id="item_form">
   <%= form_for(item, :remote => remote) do |f| %>
    <%= f.text_field :item_kind_name, :data => {:autocomplete_source => item_kinds_path }, :placeholder => "What's in your fridge, pantry or freezer?" %>
     <%= f.select :storage, (insert_storage_options) %>
-    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+    <%= f.button raw("<span>Add Item</span>"), :class => "btn btn-danger"%>
   <% end %>
 
 </div>
-<div class="pull-right">
-  or <%= link_to "Or upload your receipt", new_image_path, :class => "btn btn-primary image-upload" %>
-</div>
+
+<%= link_to new_image_path, :class => "receipt" do %>
+    <span>Upload Receipt</span>
+<%end%>
+
+
 
 
 
